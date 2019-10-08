@@ -4,12 +4,12 @@ public class Student {
 
     private String name;
     private long id;
-    ArrayList<Integer> grades;
+    private ArrayList<Integer> grades;
 
     public Student(long id, String name) {
         this.name = name;
         this.id = id;
-        grades = new ArrayList<>();
+        this.grades = new ArrayList<>();
     }
 
     public void setName(String name) {
@@ -31,18 +31,22 @@ public class Student {
     }
 
     // adds the given grade to the grades list
-    public void addGrade(int grade) {
-        this.grades.add(grade);
+    public ArrayList<Integer> getGrades() {
+        return this.grades;
     }
 
     // returns the average of the students grades
     public double getGradeAverage() {
-        int temp = 0;
-        for (Integer grade : this.grades) {
-            temp += grade;
+        double avg = 0;
+        for (int grade : this.grades) {
+            avg += grade;
         }
         //========used explicit casting to get a double type ===========//
-        return (double) (temp / this.grades.size());
+        return avg / this.grades.size();
+    }
+
+    public void addGrade(int grade) {
+        this.grades.add(grade);
     }
 }
 
